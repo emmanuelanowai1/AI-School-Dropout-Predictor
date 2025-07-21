@@ -54,10 +54,10 @@ with tab1:
             age = st.number_input("Age", 10, 30, 18)
         with col2:
             cgpa = st.number_input("CGPA", 0.0, 5.0, 2.5)
-            attendance = st.number_input("Attendance Rate (%)", 0, 100, 70)
+            attendance = st.number_input("Attendance Rate", 0, 100, 70)
             behaviour = st.number_input("Behavioural Rating", 0, 100, 60)
         with col3:
-            study_time = st.number_input("Study Time (hrs/week)", 0, 100, 10)
+            study_time = st.number_input("Study Time", 0, 100, 10)
             support = st.selectbox("Parental Support", ["YES", "NO"])
             paid_class = st.selectbox("Extra Paid Class", ["YES", "NO"])
 
@@ -140,7 +140,6 @@ with tab1:
 # ===========================
 with tab2:
     st.header("📤 Upload CSV File for Bulk Prediction")
-    uploaded = st.file_uploader("Upload a CSV", type="csv")
 
         try:
         sample_data = pd.read_csv("MODEL TRAINING DATASET.csv").head()
@@ -148,6 +147,8 @@ with tab2:
         st.dataframe(sample_data)
     except:
         st.warning("Sample data not found. Please upload your CSV file.")
+        
+        uploaded = st.file_uploader("Upload a CSV", type="csv")
 
     if uploaded:
         df = pd.read_csv(uploaded)
