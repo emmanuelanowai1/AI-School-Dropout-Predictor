@@ -3,10 +3,6 @@ import streamlit as st
 import pandas as pd
 import joblib
 from mistral_ai import generate_mistral_advice
-#from cohere_ai import generate_cohere_advice
-#from openrouter import generate_openrouter_advice
-#from openrouter import generate_advice_from_openrouter as generate_ai_response
-#from gemini import generate_gemini_response
 
 # Load trained model
 model = joblib.load("dropout_model.pkl")
@@ -50,11 +46,9 @@ with tab1:
         submit = st.form_submit_button("Predict")
 
     if submit:
-        # Convert 'Yes'/'No' to binary
         parental_support_binary = 1 if parental_support.upper() == "YES" else 0
         extra_class_binary = 1 if extra_class.upper() == "YES" else 0
 
-        # Build input DataFrame
         input_df = pd.DataFrame({
             "Age": [age],
             "CGPA": [cgpa],
@@ -65,62 +59,54 @@ with tab1:
             "Extra Paid Class": [extra_class_binary]
         })
 
-        # Align columns to model
         expected_features = model.feature_names_in_
         input_df = input_df[expected_features]
-
-        # 💡 Debug: Show input vs model expectation
-        #st.write("✅ Model expects these features:", list(expected_features))
-        #st.write("🧾 You provided these features:", list(input_df.columns))
 
         # Predict
         prediction = model.predict(input_df)[0]
         prob = model.predict_proba(input_df)[0][1] * 100
-        st.markdown("### 🧷 Smart Warnings")
-
-# Display conditional alerts based on input
-if attendance < 60:
-    st.warning("⚠️ Very Low Attendance")
-if cgpa < 2.0:
-    st.warning("📉 Poor Academic Performance (Low CGPA)")
-if behaviour < 50:
-    st.warning("😟 Behavioural Support May Be Needed")
-if study_time < 5:
-    st.info("⏰ Increase study time to improve outcomes")
-if support == "No":
-    st.info("👨‍👩‍👧‍👦 Consider involving parents or guardians")
 
         st.markdown("---")
-        st.subheader(f"🎯 Dropout Risk Score: **{prob:.2f}%**")
+        st.subheader("🎯 Dropout Risk Score")
+        st.markdown(f"**{prob:.2f}% Likely to Drop Out**")
+        st.progress(min(int(prob), 100))
+
         if prediction:
-            st.error("❌ This student is at **risk of dropping out**.")
+            st.error("❌ This student is at **high risk** of dropping out.")
         else:
             st.success("✅ This student is **not at immediate risk**.")
 
-        # AI Copilot
-        #st.markdown("### 🤖 Gemini AI Copilot Suggestion")
-        #ai_response = generate_gemini_response(input_df.iloc[0].to_dict(), student_id)
-        #st.info(ai_response)
+        # Risk Labels
+        if prob >= 80:
+            st.markdown("🚨 **Critical Risk! Immediate intervention needed.**")
+        elif prob >= 50:
+            st.markdown("⚠️ **Moderate Risk. Monitor closely.**")
+        else:
+            st.markdown("🟢 **Low Risk. Keep supporting the student.**")
 
-        #st.subheader("🤖 AI Copilot Suggestion")
-        #advice = generate_ai_response(input_df.iloc[0].to_dict())
-        #st.info(advice)
-        #st.markdown("### 🤖 AI Copilot Suggestion")
-        #ai_response = generate_openrouter_advice(input_df.iloc[0].to_dict())
-        #st.info(ai_response)
-        
-        # AI Copilot Suggestion
+        # Smart Warnings
+        st.markdown("### 🧷 Smart Warnings")
+        if attendance < 60:
+            st.warning("⚠️ Very Low Attendance")
+        if cgpa < 2.0:
+            st.warning("📉 Poor Academic Performance (Low CGPA)")
+        if behavioral < 50:
+            st.warning("😟 Behavioural Support May Be Needed")
+        if study_time < 5:
+            st.info("⏰ Increase Study Time to Improve Outcomes")
+        if parental_support.upper() == "NO":
+            st.info("👨‍👩‍👧‍👦 Consider Involving Parents or Guardians")
+
+        # AI Copilot
         st.markdown("### 🤖 AI Copilot Suggestion")
         ai_response = generate_mistral_advice(input_df.iloc[0].to_dict())
         st.info(ai_response)
 
-
-# ======= BULK PREDICTION TAB =======
+# ======= BULK UPLOAD TAB =======
 with tab2:
     st.header("📤 Upload Dataset for Bulk Prediction")
     st.markdown("Upload a CSV with the same column structure as the training data.")
 
-    # Sample data preview
     try:
         sample_data = pd.read_csv("MODEL TRAINING DATASET.csv").head()
         st.markdown("### 📌 Sample Format:")
@@ -134,26 +120,16 @@ with tab2:
         df = pd.read_csv(uploaded_file)
         df_encoded = df.copy()
 
-        # Standardize YES/NO
-        df_encoded['Parental Support'] = df_encoded['Parental Support'].astype(str).str.upper()
-        df_encoded['Extra Paid Class'] = df_encoded['Extra Paid Class'].astype(str).str.upper()
+        df_encoded['Parental Support'] = df_encoded['Parental Support'].astype(str).str.upper().map({'YES': 1, 'NO': 0})
+        df_encoded['Extra Paid Class'] = df_encoded['Extra Paid Class'].astype(str).str.upper().map({'YES': 1, 'NO': 0})
 
-        # Map YES/NO to 1/0
-        df_encoded['Parental Support'] = df_encoded['Parental Support'].map({'YES': 1, 'NO': 0})
-        df_encoded['Extra Paid Class'] = df_encoded['Extra Paid Class'].map({'YES': 1, 'NO': 0})
-
-        # Drop target if exists
         X = df_encoded.drop(columns=['Dropout'], errors='ignore')
+        X = X[model.feature_names_in_]
 
-        # Align columns
-        expected_features = model.feature_names_in_
-        X = X[expected_features]
-
-        # Predict
         df['Dropout Prediction'] = model.predict(X)
         df['Dropout Risk (%)'] = model.predict_proba(X)[:, 1] * 100
 
-        # Generate AI Suggestions
+        # AI Suggestions
         df['AI Advice'] = [
             generate_mistral_advice(row.to_dict(), row.get('Registration Number', None))
             for _, row in X.iterrows()
@@ -163,10 +139,9 @@ with tab2:
         st.subheader("📊 Prediction Results")
         st.dataframe(df)
 
-        # Download button
         csv = df.to_csv(index=False).encode('utf-8')
         st.download_button("Download Results", csv, "predictions.csv", "text/csv")
 
-# ======= FOOTER LINKS =======
+# ======= FOOTER =======
 st.markdown("---")
 st.markdown("💡 [Calculate CGPA Online](https://cgpacalculator.com.ng/)")
