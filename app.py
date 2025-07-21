@@ -130,10 +130,10 @@ with tab2:
         df['Dropout Risk (%)'] = model.predict_proba(X)[:, 1] * 100
 
         # Generate AI Suggestions
-        #df['AI Advice'] = [
-            #generate_gemini_response(row.to_dict(), row.get('Student ID', None))
-            #for _, row in X.iterrows()
-        #]
+        df['AI Advice'] = [
+            generate_ai_response(row.to_dict(), row.get('Registration Number', None))
+            for _, row in X.iterrows()
+        ]
 
         st.markdown("---")
         st.subheader("📊 Prediction Results")
