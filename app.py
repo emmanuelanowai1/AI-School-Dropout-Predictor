@@ -30,7 +30,7 @@ with tab1:
         col1, col2, col3 = st.columns(3)
 
         with col1:
-            student_id = st.text_input("Student ID")
+            reg_no = st.text_input("Registration Number")
             age = st.number_input("Age", min_value=10, max_value=30, value=18)
 
         with col2:
@@ -66,8 +66,8 @@ with tab1:
         input_df = input_df[expected_features]
 
         # 💡 Debug: Show input vs model expectation
-        st.write("✅ Model expects these features:", list(expected_features))
-        st.write("🧾 You provided these features:", list(input_df.columns))
+        #st.write("✅ Model expects these features:", list(expected_features))
+        #st.write("🧾 You provided these features:", list(input_df.columns))
 
         # Predict
         prediction = model.predict(input_df)[0]
@@ -81,9 +81,9 @@ with tab1:
             st.success("✅ This student is **not at immediate risk**.")
 
         # AI Copilot
-        st.markdown("### 🤖 Gemini AI Copilot Suggestion")
-        ai_response = generate_gemini_response(input_df.iloc[0].to_dict(), student_id)
-        st.info(ai_response)
+        #st.markdown("### 🤖 Gemini AI Copilot Suggestion")
+        #ai_response = generate_gemini_response(input_df.iloc[0].to_dict(), student_id)
+        #st.info(ai_response)
 
 # ======= BULK PREDICTION TAB =======
 with tab2:
@@ -124,10 +124,10 @@ with tab2:
         df['Dropout Risk (%)'] = model.predict_proba(X)[:, 1] * 100
 
         # Generate AI Suggestions
-        df['AI Advice'] = [
-            generate_gemini_response(row.to_dict(), row.get('Student ID', None))
-            for _, row in X.iterrows()
-        ]
+        #df['AI Advice'] = [
+            #generate_gemini_response(row.to_dict(), row.get('Student ID', None))
+            #for _, row in X.iterrows()
+        #]
 
         st.markdown("---")
         st.subheader("📊 Prediction Results")
