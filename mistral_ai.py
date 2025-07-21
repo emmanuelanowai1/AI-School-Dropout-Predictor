@@ -15,8 +15,8 @@ def generate_mistral_advice(student_data):
         f"- Attendance Rate: {student_data['Attendance Rate']}%\n"
         f"- Behavioural Rating: {student_data['Behavioural Rating']}%\n"
         f"- Study Time: {student_data['Study Time']} hours/week\n"
-        f"- Parental Support: {'Yes' if student_data['Parental Support'] else 'No'}\n"
-        f"- Extra Paid Class: {'Yes' if student_data['Extra Paid Class'] else 'No'}\n\n"
+        f"- Parental Support: {'YES' if student_data['Parental Support'] else 'NO'}\n"
+        f"- Extra Paid Class: {'YES' if student_data['Extra Paid Class'] else 'NO'}\n\n"
         f"Advice:"
     )
 
