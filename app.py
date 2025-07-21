@@ -2,7 +2,7 @@
 import streamlit as st
 import pandas as pd
 import joblib
-from gemini import generate_gemini_response
+#from gemini import generate_gemini_response
 
 # Load trained model
 model = joblib.load("dropout_model.pkl")
