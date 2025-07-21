@@ -2,6 +2,7 @@
 import streamlit as st
 import pandas as pd
 import joblib
+from openrouter import generate_advice_from_openrouter as generate_ai_response
 #from gemini import generate_gemini_response
 
 # Load trained model
