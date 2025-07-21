@@ -2,7 +2,7 @@
 import streamlit as st
 import pandas as pd
 import joblib
-from mistral_ai import generate_mistral_advice
+#from mistral_ai import generate_mistral_advice
 
 # Load trained model
 model = joblib.load("dropout_model.pkl")
@@ -98,9 +98,9 @@ with tab1:
             st.info("👨‍👩‍👧‍👦 Consider Involving Parents or Guardians")
 
         # AI Copilot
-        st.markdown("### 🤖 AI Copilot Suggestion")
-        ai_response = generate_mistral_advice(input_df.iloc[0].to_dict())
-        st.info(ai_response)
+        #st.markdown("### 🤖 AI Copilot Suggestion")
+        #ai_response = generate_mistral_advice(input_df.iloc[0].to_dict())
+        #st.info(ai_response)
 
 # ======= BULK UPLOAD TAB =======
 with tab2:
@@ -130,10 +130,10 @@ with tab2:
         df['Dropout Risk (%)'] = model.predict_proba(X)[:, 1] * 100
 
         # AI Suggestions
-        df['AI Advice'] = [
-            generate_mistral_advice(row.to_dict(), row.get('Registration Number', None))
-            for _, row in X.iterrows()
-        ]
+        #df['AI Advice'] = [
+            #generate_mistral_advice(row.to_dict(), row.get('Registration Number', None))
+            #for _, row in X.iterrows()
+        #]
 
         st.markdown("---")
         st.subheader("📊 Prediction Results")
