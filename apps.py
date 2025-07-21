@@ -98,6 +98,13 @@ with tab1:
 with tab2:
     st.header("📤 Upload CSV for Bulk Predictions")
     st.markdown("Ensure your CSV matches the expected structure (Age, CGPA, Attendance Rate, etc).")
+    
+    try:
+        sample_data = pd.read_csv("MODEL TRAINING DATASET.csv").head()
+        st.markdown("### 📌 Sample Format:")
+        st.dataframe(sample_data)
+    except:
+        st.warning("Sample data not found. Please upload your CSV file.")
 
     uploaded_file = st.file_uploader("Upload File", type=["csv"])
 
