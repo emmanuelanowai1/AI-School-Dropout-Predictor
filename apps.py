@@ -141,10 +141,10 @@ with tab1:
 with tab2:
     st.header("📤 Upload CSV File for Bulk Prediction")
 
-        try:
-        sample_data = pd.read_csv("MODEL TRAINING DATASET.csv").head()
-        st.markdown("### 📌 Sample Format:")
-        st.dataframe(sample_data)
+    try:
+    sample_data = pd.read_csv("MODEL TRAINING DATASET.csv").head()
+    st.markdown("### 📌 Sample Format:")
+    st.dataframe(sample_data)
     except:
         st.warning("Sample data not found. Please upload your CSV file.")
         
