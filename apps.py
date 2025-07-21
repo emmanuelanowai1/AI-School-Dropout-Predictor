@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 from mistral_ai import generate_mistral_advice
-from reportlab.pdfgen import canvas
+#from reportlab.pdfgen import canvas
 import tempfile
 import base64
 
