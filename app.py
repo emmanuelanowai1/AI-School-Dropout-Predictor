@@ -2,7 +2,8 @@
 import streamlit as st
 import pandas as pd
 import joblib
-from openrouter import generate_advice_from_openrouter as generate_ai_response
+from openrouter_ai import generate_openrouter_advice
+#from openrouter import generate_advice_from_openrouter as generate_ai_response
 #from gemini import generate_gemini_response
 
 # Load trained model
@@ -86,9 +87,12 @@ with tab1:
         #ai_response = generate_gemini_response(input_df.iloc[0].to_dict(), student_id)
         #st.info(ai_response)
 
-        st.subheader("🤖 AI Copilot Suggestion")
-        advice = generate_ai_response(input_df.iloc[0].to_dict())
-        st.info(advice)
+        #st.subheader("🤖 AI Copilot Suggestion")
+        #advice = generate_ai_response(input_df.iloc[0].to_dict())
+        #st.info(advice)
+        st.markdown("### 🤖 AI Copilot Suggestion")
+        ai_response = generate_openrouter_advice(input_df.iloc[0].to_dict())
+        st.info(ai_response)
 
 
 # ======= BULK PREDICTION TAB =======
@@ -131,7 +135,7 @@ with tab2:
 
         # Generate AI Suggestions
         df['AI Advice'] = [
-            generate_ai_response(row.to_dict(), row.get('Registration Number', None))
+            generate_openrouter_advice(row.to_dict(), row.get('Registration Number', None))
             for _, row in X.iterrows()
         ]
 
