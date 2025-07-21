@@ -76,6 +76,19 @@ with tab1:
         # Predict
         prediction = model.predict(input_df)[0]
         prob = model.predict_proba(input_df)[0][1] * 100
+        st.markdown("### 🧷 Smart Warnings")
+
+# Display conditional alerts based on input
+if attendance < 60:
+    st.warning("⚠️ Very Low Attendance")
+if cgpa < 2.0:
+    st.warning("📉 Poor Academic Performance (Low CGPA)")
+if behaviour < 50:
+    st.warning("😟 Behavioural Support May Be Needed")
+if study_time < 5:
+    st.info("⏰ Increase study time to improve outcomes")
+if support == "No":
+    st.info("👨‍👩‍👧‍👦 Consider involving parents or guardians")
 
         st.markdown("---")
         st.subheader(f"🎯 Dropout Risk Score: **{prob:.2f}%**")
