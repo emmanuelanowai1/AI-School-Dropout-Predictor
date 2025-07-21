@@ -2,7 +2,8 @@
 import streamlit as st
 import pandas as pd
 import joblib
-from cohere_ai import generate_cohere_advice
+from mistral_ai import generate_mistral_advice
+#from cohere_ai import generate_cohere_advice
 #from openrouter import generate_openrouter_advice
 #from openrouter import generate_advice_from_openrouter as generate_ai_response
 #from gemini import generate_gemini_response
@@ -97,7 +98,7 @@ with tab1:
         
         # AI Copilot Suggestion
         st.markdown("### 🤖 AI Copilot Suggestion")
-        ai_response = generate_cohere_advice(input_df.iloc[0].to_dict())
+        ai_response = generate_mistral_advice(input_df.iloc[0].to_dict())
         st.info(ai_response)
 
 
@@ -141,7 +142,7 @@ with tab2:
 
         # Generate AI Suggestions
         df['AI Advice'] = [
-            generate_cohere_advice(row.to_dict(), row.get('Registration Number', None))
+            generate_mistral_advice(row.to_dict(), row.get('Registration Number', None))
             for _, row in X.iterrows()
         ]
 
