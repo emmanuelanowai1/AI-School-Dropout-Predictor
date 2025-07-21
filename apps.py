@@ -2,7 +2,7 @@
 import streamlit as st
 import pandas as pd
 import joblib
-from mistral_ai import generate_mistral_advice, ask_teacher_bot
+from mistral import generate_mistral_advice, ask_teacher_bot
 
 # Load model
 model = joblib.load("dropout_model.pkl")
