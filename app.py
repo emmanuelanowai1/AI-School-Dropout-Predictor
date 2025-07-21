@@ -86,6 +86,11 @@ with tab1:
         #ai_response = generate_gemini_response(input_df.iloc[0].to_dict(), student_id)
         #st.info(ai_response)
 
+        st.subheader("🤖 AI Copilot Suggestion")
+        advice = generate_ai_response(input_df.iloc[0])
+        st.info(advice)
+
+
 # ======= BULK PREDICTION TAB =======
 with tab2:
     st.header("📤 Upload Dataset for Bulk Prediction")
