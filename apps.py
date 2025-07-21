@@ -142,6 +142,13 @@ with tab2:
     st.header("📤 Upload CSV File for Bulk Prediction")
     uploaded = st.file_uploader("Upload a CSV", type="csv")
 
+        try:
+        sample_data = pd.read_csv("MODEL TRAINING DATASET.csv").head()
+        st.markdown("### 📌 Sample Format:")
+        st.dataframe(sample_data)
+    except:
+        st.warning("Sample data not found. Please upload your CSV file.")
+
     if uploaded:
         df = pd.read_csv(uploaded)
         df['Parental Support'] = df['Parental Support'].str.upper().map({"YES": 1, "NO": 0})
