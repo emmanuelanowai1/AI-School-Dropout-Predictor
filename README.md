@@ -38,8 +38,8 @@ Built for the **3MTT Knowledge Showcase (July Edition)** to demonstrate how **AI
 ├── mistral.py             # Handles Mistral AI chat and advice generation
 ├── MODEL TRAINING DATASET.csv     # Example data structure for bulk prediction
 ├── requirements.txt       # Required Python libraries
-├── training_log.txt
-├── feature_importance.csv
+├── training_log.txt       # Model Training log
+├── feature_importance.csv # Feature importance
 ```
 
 ## 🖼️ Demo Screenshots
