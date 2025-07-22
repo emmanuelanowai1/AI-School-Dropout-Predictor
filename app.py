@@ -15,7 +15,7 @@ st.markdown("AI-powered tool to predict dropout risks and suggest support strate
 st.markdown("---")
 
 # Navigation tabs
-tab1, tab2, tab3 = st.tabs(["📋 *Manual Prediction*", "📤 Bulk Prediction", "🧑‍🏫 AI Student Advisor"])
+tab1, tab2, tab3 = st.tabs(["📋 Manual Prediction", "📤 Bulk Prediction", "🧑‍🏫 AI Student Advisor"])
 
 # ====================== TAB 1: MANUAL PREDICTION ======================
 with tab1:
@@ -90,7 +90,7 @@ with tab1:
             st.info("👨‍👩‍👧‍👦 Consider involving guardians")
 
         # 🤖 AI Copilot Advice
-        st.markdown("### 🤖 AI Risk Insight & Advice")
+        st.markdown("### 🤖 AI Insight & Advice")
         ai_advice = generate_mistral_advice(input_df.iloc[0].to_dict())
         st.info(ai_advice)
 
