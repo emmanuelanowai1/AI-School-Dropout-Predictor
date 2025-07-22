@@ -10,8 +10,8 @@ model = joblib.load("dropout_model.pkl")
 # Page config
 st.set_page_config(page_title="🎓 School Dropout Predictor", layout="wide")
 
-st.title("🎓 School Dropout Predictor with AI Insights")
-st.markdown("AI-powered tool to predict dropout risks and suggest support strategies.")
+st.title("🎓 DropAlert NG")
+st.markdown("An AI-Powered System for Predicting Student Dropout Risk and Generating Actionable Insights.")
 st.markdown("---")
 
 # Navigation tabs
