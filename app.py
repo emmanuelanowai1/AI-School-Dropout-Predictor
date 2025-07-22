@@ -15,7 +15,7 @@ st.markdown("AI-powered tool to predict dropout risks and suggest support strate
 st.markdown("---")
 
 # Navigation tabs
-tab1, tab2, tab3 = st.tabs(["📋 Manual Prediction", "📤 Bulk Prediction", "🧑‍🏫 AI Student Advisor"])
+tab1, tab2, tab3 = st.tabs(["📋 Manual Prediction", "📤 Bulk Prediction", "🧑‍🏫 AI Academic Advisor"])
 
 # ====================== TAB 1: MANUAL PREDICTION ======================
 with tab1:
@@ -132,9 +132,9 @@ with tab2:
         csv = df.to_csv(index=False).encode('utf-8')
         st.download_button("📥 Download CSV", csv, "dropout_predictions.csv", "text/csv")
 
-# ====================== TAB 3: AI Q&A TEACHER COPILOT ======================
+# ====================== TAB 3: AI Academic Advisor ======================
 with tab3:
-    st.header("🧑‍🏫 AI-Powered Support Bot")
+    st.header("🧑‍🏫 AI Academic Advisor")
     st.markdown("Ask anything like:\n- *What does low CGPA and low attendance mean?*\n- *How can I help a critical-risk student?*")
 
     if "chat_history" not in st.session_state:
