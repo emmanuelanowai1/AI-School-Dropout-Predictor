@@ -45,12 +45,14 @@ Built for the **3MTT Knowledge Showcase (July Edition)** to demonstrate how **AI
 ## 🖼️ Demo Screenshots
 
 ### 🔍 Single Student Prediction  
-![Manual Prediction](screenshots/bandicam 2025-07-22 16-58-45-830.jpg)
+![Manual Prediction]("screenshots/bandicam 2025-07-22 16-58-45-830.jpg")
 
 ### 📂 Bulk Upload from Excel  
 ![Bulk Upload](screenshots/bulk_prediction.png)
 
 ### 🧠 AI-Powered Academic Advisor  
+![bandicam 2025-07-22 16-58-45-830](https://github.com/user-attachments/assets/08478559-c52f-4858-bbb4-bf1d16e9418c)
+
 ![AI Chat](screenshots/ai_advisor.png)
 
 ---
