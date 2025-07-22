@@ -35,9 +35,11 @@ Built for the **3MTT Knowledge Showcase (July Edition)** to demonstrate how **AI
 ```bash
 ├── app.py                 # Main Streamlit app
 ├── dropout_model.pkl      # Trained machine learning model
-├── mistral_ai.py          # Handles Mistral AI chat and advice generation
-├── sample_dataset.csv     # Example data structure for bulk prediction
+├── mistral.py             # Handles Mistral AI chat and advice generation
+├── MODEL TRAINING DATASET.csv     # Example data structure for bulk prediction
 ├── requirements.txt       # Required Python libraries
+├── training_log.txt
+├── feature_importance.csv
 ```
 
 ## 🖼️ Demo Screenshots
