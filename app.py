@@ -15,7 +15,7 @@ st.markdown("AI-powered tool to predict dropout risks and suggest support strate
 st.markdown("---")
 
 # Navigation tabs
-tab1, tab2, tab3 = st.tabs(["📋 Manual Prediction", "📤 Bulk Prediction", "🧑‍🏫 AI Q&A Copilot"])
+tab1, tab2, tab3 = st.tabs(["📋 Manual Prediction", "📤 Bulk Prediction", "🧑‍🏫 AI Student Advisor"])
 
 # ====================== TAB 1: MANUAL PREDICTION ======================
 with tab1:
@@ -90,7 +90,7 @@ with tab1:
             st.info("👨‍👩‍👧‍👦 Consider involving guardians")
 
         # 🤖 AI Copilot Advice
-        st.markdown("### 🤖 AI Copilot Suggestion")
+        st.markdown("### 🤖 AI Risk Insight & Advice")
         ai_advice = generate_mistral_advice(input_df.iloc[0].to_dict())
         st.info(ai_advice)
 
@@ -134,7 +134,7 @@ with tab2:
 
 # ====================== TAB 3: AI Q&A TEACHER COPILOT ======================
 with tab3:
-    st.header("🧑‍🏫 Ask the AI Copilot (Teacher Assistant)")
+    st.header("🧑‍🏫 AI-Powered Support Bot")
     st.markdown("Ask anything like:\n- *What does low CGPA and low attendance mean?*\n- *How can I help a critical-risk student?*")
 
     if "chat_history" not in st.session_state:
@@ -145,7 +145,7 @@ with tab3:
     if st.button("Ask AI") and question:
         st.session_state.chat_history.append(("You", question))
         answer = ask_teacher_bot(question)
-        st.session_state.chat_history.append(("AI Copilot", answer))
+        st.session_state.chat_history.append(("AI Support Bot", answer))
 
     for sender, msg in st.session_state.chat_history:
         if sender == "You":
