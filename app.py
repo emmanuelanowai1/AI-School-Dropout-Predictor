@@ -15,7 +15,7 @@ st.markdown("AI-powered tool to predict dropout risks and suggest support strate
 st.markdown("---")
 
 # Navigation tabs
-tab1, tab2, tab3 = st.tabs(["📋 Manual Prediction", "📤 Bulk Prediction", "🧑‍🏫 AI Academic Advisor"])
+tab1, tab2, tab3 = st.tabs(["📋 **Manual Prediction**", "📤 **Bulk Prediction**", "🧑‍🏫 **AI Academic Advisor**"])
 
 # ====================== TAB 1: MANUAL PREDICTION ======================
 with tab1:
