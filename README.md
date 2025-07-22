@@ -45,7 +45,7 @@ Built for the **3MTT Knowledge Showcase (July Edition)** to demonstrate how **AI
 ## 🖼️ Demo Screenshots
 
 ### 🔍 Single Student Prediction  
-![Manual Prediction](screenshots/manual_prediction.png)
+![Manual Prediction](screenshots/bandicam 2025-07-22 16-58-45-830.jpg)
 
 ### 📂 Bulk Upload from Excel  
 ![Bulk Upload](screenshots/bulk_prediction.png)
