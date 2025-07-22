@@ -90,14 +90,14 @@ with tab1:
             st.info("👨‍👩‍👧‍👦 Consider involving guardians")
 
         # 🤖 AI Copilot Advice
-        st.markdown("### 🤖 AI Insight & Advice")
+        st.markdown("### 📘 AI-Generated Insights & Advice")
         ai_advice = generate_mistral_advice(input_df.iloc[0].to_dict())
         st.info(ai_advice)
 
 # ====================== TAB 2: BULK PREDICTION ======================
 with tab2:
     st.header("📤 Upload CSV for Bulk Predictions")
-    st.markdown("Ensure your CSV matches the expected structure below.")
+    st.markdown("Ensure your CSV matches the expected structure below 👇.")
     
     try:
         sample_data = pd.read_csv("MODEL TRAINING DATASET.csv").head()
