@@ -80,7 +80,7 @@ with tab1:
         st.markdown("### 🧷 Smart Warning Tags")
         if attendance < 60:
             st.warning("⚠️ Very Low Attendance")
-        if cgpa < 2.0:
+        if cgpa < 2.3:
             st.warning("📉 Low CGPA — Academic support needed")
         if behavior < 50:
             st.warning("😟 Behavioural Support May Be Needed")
