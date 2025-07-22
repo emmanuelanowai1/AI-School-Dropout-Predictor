@@ -2,7 +2,7 @@
 
 An intelligent, data-driven tool that predicts student dropout risk and generates personalized AI insights — designed especially for schools and educators in Nigeria.
 
-Built for the **3MTT Knowledge Showcase (July Edition)** to demonstrate how **AI + Data** can solve real educational problems.
+Built for the **3MTT Knowledge Showcase (July Edition)** to demonstrate how **AI + Data** can solve real educational problems in Nigeria.
 
 ---
 
@@ -13,9 +13,7 @@ Built for the **3MTT Knowledge Showcase (July Edition)** to demonstrate how **AI
 - 🧠 Get **AI-generated intervention plans** for each student (powered by Mistral/OpenRouter)
 - 📊 **Dropout risk meter** + smart warning labels (Low, Medium, High)
 - 📥 Downloadable **Parent Report PDF**
-- 🔍 Compare two students side-by-side
 - 💬 Chat with an **AI Academic Advisor** (Ask: “How can I help this student?”)
-- 🌐 English & Pidgin language toggle (Coming Soon)
 - 🎨 Enhanced UI with tabs, emojis, and icons
 - 🧩 Easy deployment via Streamlit Cloud
 
@@ -27,10 +25,20 @@ Built for the **3MTT Knowledge Showcase (July Edition)** to demonstrate how **AI
 2. Our trained ML model predicts the dropout likelihood.
 3. The app displays a **Dropout Risk Score** and alert labels.
 4. Mistral AI explains **why** the student is at risk and suggests what to do.
-5. Teachers can chat with the **AI Academic Advisor** for help.
+5. Lecturers/ Students can chat with the **AI Academic Advisor** for help.
 6. Admins can download PDF reports for follow-up with parents/guardians.
 
 ---
+
+## 📂 Project Structure
+
+```bash
+├── app.py                 # Main Streamlit app
+├── dropout_model.pkl      # Trained machine learning model
+├── mistral_ai.py          # Handles Mistral AI chat and advice generation
+├── sample_dataset.csv     # Example data structure for bulk prediction
+├── requirements.txt       # Required Python libraries
+```
 
 ## 🖼️ Demo Screenshots
 
@@ -57,12 +65,13 @@ pip install -r requirements.txt
 
 # Run the app
 streamlit run app.py
+```
 
 ## 🙏 Acknowledgements
 
 - 🇳🇬 **3MTT Nigeria** – For the learning opportunity and national tech empowerment.
-- 🎓 **Darey.io** – For practical training in Data Analysis, Visualization, and AI app development.
-- 🧠 **Mistral via OpenRouter** – For providing AI capabilities for insights and chatbot features.
+- 🎓 **Darey.io** – For practical training in Data Analysis, Visualization.
+- 🧠 **Mistral via OpenRouter** – For accessible powerful AI APIs.
 - ⚙️ **Streamlit** – For simplifying the building of powerful data-driven web apps.
 - 💡 **The Open Source Community** – For open tools, libraries, and constant inspiration.
 
@@ -75,10 +84,8 @@ streamlit run app.py
 - ✅ AI academic advisor and insight generation functional
 - ✅ Fully deployed with enhanced UI
 - ⏳ In progress:
-  - 📄 PDF report for parents
   - 🌐 Multilingual support (Pidgin, Hausa, Yoruba)
   - 🔊 Voice feedback & alert system
-  - 📱 Offline/Lite mobile-ready version
 
 ---
 
@@ -88,3 +95,9 @@ Crafted with purpose to fight student dropout and promote early academic interve
 Developed by **Emmanuel Anowai and Adanma Iheanacho** as part of the **3MTT Knowledge Showcase – July Edition**.
 
 > _"Not just a project — but a mission to keep more students in school, using data and AI as a force for good."_
+
+---
+
+## 📎 License
+
+This project is open-source under the **MIT** License.
