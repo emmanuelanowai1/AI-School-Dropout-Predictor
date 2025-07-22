@@ -48,3 +48,23 @@ git clone https://github.com/yourusername/school-dropout-predictor.git
 cd school-dropout-predictor
 pip install -r requirements.txt
 streamlit run app.py
+
+---
+
+## 🤖 API Integration
+
+This app integrates Mistral AI via [OpenRouter](https://openrouter.ai/) to provide intelligent academic insights and chatbot support for teachers.
+
+### AI Functions Used:
+
+- `generate_mistral_advice(input_data_dict)` – Returns smart intervention suggestions for each student, based on their risk profile.
+- `ask_teacher_bot(question)` – Lets teachers ask natural language questions like:
+  - *“What support can help a student with low CGPA and poor attendance?”*
+  - *“How to reduce dropout risk in SS2 students?”*
+
+🔐 **Note:** You must include your OpenRouter API key as an environment variable or directly in the `mistral_ai.py` file:
+```python
+headers = {
+    "Authorization": "Bearer YOUR_API_KEY",
+    "HTTP-Referer": "https://your-project-url.com"
+}
