@@ -29,7 +29,7 @@ with tab1:
         with col2:
             cgpa = st.number_input("CGPA", 0.0, 5.0, 2.5)
             attendance = st.number_input("Attendance Rate (%)", 0, 100, 70)
-            behavior = st.number_input("Behavioral Rating (%)", 0, 100, 60)
+            behavior = st.number_input("Behavioral Rating (%)", 0, 100, 45)
         with col3:
             study_time = st.number_input("Weekly Study Time (hrs)", 0, 50, 8)
             support = st.selectbox("Parental Support", ["Yes", "No"])
