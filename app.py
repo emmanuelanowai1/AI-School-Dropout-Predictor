@@ -157,3 +157,12 @@ with tab3:
 st.markdown("---")
 st.markdown("💡 [Calculate CGPA Online](https://cgpacalculator.com.ng/)")
 st.markdown("Built with ❤️ using Streamlit and Mistral AI")
+st.markdown("""---""")  # Horizontal line
+
+st.markdown(
+    "<div style='text-align: center; font-size: 14px;'>"
+    "🔗 View Source on <a href='https://github.com/your-username/your-repo' target='_blank'>GitHub</a> | "
+    "Developed by Emmanuel Anowai & Adanma Iheanacho"
+    "</div>",
+    unsafe_allow_html=True
+    )
