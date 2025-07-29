@@ -161,7 +161,7 @@ st.markdown("""---""")  # Horizontal line
 
 st.markdown(
     "<div style='text-align: center; font-size: 14px;'>"
-    "🔗 View Source on <a href='https://github.com/your-username/your-repo' target='_blank'>GitHub</a> | "
+    "🔗 View Source code on <a href='https://github.com/emmanuelanowai1/DropAlert-NG' target='_blank'>GitHub Repo</a> | "
     "Developed by Emmanuel Anowai & Adanma Iheanacho"
     "</div>",
     unsafe_allow_html=True
